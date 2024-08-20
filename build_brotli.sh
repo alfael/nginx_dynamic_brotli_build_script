@@ -1,7 +1,7 @@
 #!/bin/bash
 export NGINX_VER=1.26.0
 echo "[*] Installing deps...."
-sudo apt-get install libpcre3-dev build-essential dpkg-dev zlib1g-dev libpcre3 unzip wget git gcc cmake libpcre3 zlib1g zlib1g-dev openssl libssl-dev gnupg2
+apt-get install libpcre3-dev build-essential dpkg-dev zlib1g-dev libpcre3 unzip wget git gcc cmake libpcre3 zlib1g zlib1g-dev openssl libssl-dev gnupg2
 
 echo "[*] Cleaning existing build files ..."
 if [ -d "nginx-$NGINX_VER" ]; then
@@ -39,10 +39,10 @@ echo "[*] Build nginx brotli module ..."
 make
 
 echo "[*] Install nginx brotli module to /usr/lib/nginx/modules/ ...."
-sudo cp objs/ngx_http_brotli_filter_module.so  /usr/lib/nginx/modules/
-sudo chmod 644 /usr/lib/nginx/modules/ngx_http_brotli_filter_module.so
-sudo cp objs/ngx_http_brotli_static_module.so /usr/lib/nginx/modules/
-sudo chmod 644 /usr/lib/nginx/modules/ngx_http_brotli_static_module.so
+cp objs/ngx_http_brotli_filter_module.so  /usr/lib/nginx/modules/
+chmod 644 /usr/lib/nginx/modules/ngx_http_brotli_filter_module.so
+cp objs/ngx_http_brotli_static_module.so /usr/lib/nginx/modules/
+chmod 644 /usr/lib/nginx/modules/ngx_http_brotli_static_module.so
 
 cd ../
 
